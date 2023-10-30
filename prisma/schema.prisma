@@ -14,7 +14,7 @@ datasource db {
 model Usuario {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  nome  String?
+  nome  String
 
   @@map("usuarios")
 }

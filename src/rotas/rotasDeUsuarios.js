@@ -17,8 +17,14 @@ router.post('/', async (req, res) => {
   res.status(201).send('Usuário salvo com sucesso!');
 });
 
-router.put('/:id', (req, res) => {
-  res.send('Put usuário!');
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nome } = req.body;
+  await prisma.usuario.update({
+    where: { id: parseInt(id) },
+    data: { nome: nome },
+  });
+  res.send('Usuário alterado com sucesso!');
 });
 
 router.delete('/:id', (req, res) => {
