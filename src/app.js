@@ -1,3 +1,4 @@
+import cors from 'cors';
 import Express from 'express'; // importa o módulo do express
 import logger from 'morgan';
 import rotasDeUsuarios from './rotas/rotasDeUsuarios.js';
@@ -6,6 +7,7 @@ import rotasDeUsuarios from './rotas/rotasDeUsuarios.js';
 const app = Express();
 // middleware para converter os body da requisição para json
 app.use(Express.json());
+app.use(cors());
 // app.use(primeiro);
 // app.use(segundo);
 
