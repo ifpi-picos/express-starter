@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Express from 'express';
+import { criptografaSenha } from '../servicos/senha.js';
 
 const router = Express.Router();
 const prisma = new PrismaClient();
@@ -13,7 +14,7 @@ router.post('/', async (req, res) => {
   const { nome } = req.body;
   const { email } = req.body;
   const { senha } = req.body;
-  const usuario = { nome, email, senha };
+  const usuario = { nome, email, senha: criptografaSenha(senha) };
   await prisma.usuario.create({
     data: usuario,
   });
