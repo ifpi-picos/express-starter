@@ -27,8 +27,12 @@ router.put('/:id', async (req, res) => {
   res.send('Usuário alterado com sucesso!');
 });
 
-router.delete('/:id', (req, res) => {
-  res.send('Delete usuário!');
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  await prisma.usuario.delete({
+    where: { id: parseInt(id) },
+  });
+  res.send('Usuário removido com sucesso!');
 });
 
 export default router;
