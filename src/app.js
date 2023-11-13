@@ -14,7 +14,6 @@ app.use(cors());
 app.use(logger('dev'));
 
 app.use('/usuarios', rotasDeUsuarios);
-app.use('/passageiros', rotasDeUsuarios);
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
