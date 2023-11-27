@@ -8,9 +8,6 @@ const app = Express();
 // middleware para converter os body da requisição para json
 app.use(Express.json());
 app.use(cors());
-// app.use(primeiro);
-// app.use(segundo);
-
 app.use(logger('dev'));
 
 app.use('/usuarios', rotasDeUsuarios);
