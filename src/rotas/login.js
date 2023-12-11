@@ -1,9 +1,7 @@
-import { PrismaClient } from '@prisma/client';
 import Express from 'express';
 import Autenticacao from '../servicos/Autenticacao.js';
 
 const router = Express.Router();
-const prisma = new PrismaClient();
 const autenticacao = new Autenticacao();
 
 router.post('/', async (req, res) => {

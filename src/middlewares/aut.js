@@ -16,7 +16,7 @@ function validaToken(req, res, next) {
 
   jwt.verify(token, chaveSecretaToken, (error, decoded) => {
     if (error) {
-      return res.status(500).send({
+      return res.status(401).send({
         auth: false,
         message: 'Falha na autenticação. Error -> ' + error,
       });
